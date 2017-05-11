@@ -1,0 +1,64 @@
+﻿@model IEnumerable<SkateSpotsFinalProject.Models.SkateSpot>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Skate Spots</h2>
+
+
+
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Long)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Long)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.SkateSpotID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.SkateSpotID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.SkateSpotID })
+        </td>
+    </tr>
+}
+
+</table>*@
+
+<div id="map">
+
+</div>
+
+@section scripts{
+    <script>var map;
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 32.782056, lng:-96.792700 },
+                zoom: 16
+            });
+        }</script>
+    <script type="text/javascript" src="~/Scripts/App/GoogleMapsAPI.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDONVnN2aLIMB1nIoRFotCNXpeVbTg9rMM&v=3&callback=initMap"></script>
+    }

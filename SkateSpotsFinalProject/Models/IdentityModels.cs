@@ -29,5 +29,7 @@ namespace SkateSpotsFinalProject.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<SkateSpotsFinalProject.Models.SkateSpot> SkateSpots { get; set; }
     }
 }
