@@ -52,13 +52,61 @@
 </div>
 
 @section scripts{
-    <script>var map;
+    <script>
+        var map;
+
+        var markers = [];
         function initMap() {
             map = new google.maps.Map(document.getElementById('map'), {
-                center: { lat: 32.782056, lng:-96.792700 },
+                center: { lat: 32.662658, lng: -97.183712 },
                 zoom: 16
             });
-        }</script>
+
+            var locations = [{ title: '4 stair at Heritage Church', location: { lat: 32.664780, lng: -97.183406 } },
+            { title: 'Corey School 7 stair set', location: { lat: 32.663097, lng: -97.176810 } },
+            { title: 'Mr. Jims Gap', location: { lat: 32.665083, lng: -97.176158 } },
+            { title: 'Lutheran Church Curb Gap', location: { lat: 32.659731, lng: -97.176295 } },
+            { title: 'Rail and 5 stairs', location: { lat: 32.664061, lng: -97.180270 } }];
+
+            var largeInfowindow = new google.maps.InfoWindow();
+            //var bounds = new google.maps.LatLngBounds();
+
+            for (var i = 0; i < locations.length; i++) {
+                var position = locations[i].location;
+                var title = locations[i].title;
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: position,
+                    title: title,
+                    animation: google.maps.Animation.DROP,
+                    id: i
+                });
+
+                markers.push(marker);
+
+
+
+                marker.addListener('click', function () {
+                    populateInfoWindow(this, largeInfowindow);
+                });
+            }
+
+
+            function populateInfoWindow(marker, infowindow) {
+                if (infowindow.marker != marker) {
+                    infowindow.marker = marker;
+                    infowindow.setContent('<div>' + marker.title + '</div>');
+                    infowindow.open(map, marker);
+
+                    infowindow.addListener('closeclick', function () {
+                        infowindow.setMarker(null);
+                    });
+                }
+            }
+        }
+
+    </script>
     <script type="text/javascript" src="~/Scripts/App/GoogleMapsAPI.js"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDONVnN2aLIMB1nIoRFotCNXpeVbTg9rMM&v=3&callback=initMap"></script>
+    
     }
