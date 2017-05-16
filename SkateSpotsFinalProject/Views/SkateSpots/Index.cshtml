@@ -53,14 +53,13 @@
 
 </div>
 <div id="coords"></div>
-
+<hr />
 @using (Html.BeginForm("Create","SkateSpots"))
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>SkateSpot</h4>
-        <hr />
+        
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -131,6 +130,10 @@
                 $('#Lat').val(e.latLng.lat())
                 $('#Long').val(e.latLng.lng())
             });
+
+            //$('#Description').val(document.getElementById('Description'));
+            //$('#ShortDescription').val(document.getElementById('ShortDescription'));
+            
 
 
 
@@ -205,10 +208,6 @@
             //    }
 
 
-
-
-
-
             //LOOP OVER ARRAY OF LOCATIONS TO DROP MARKERS
 
             for (var i = 0; i < locations.length; i++) {
@@ -234,6 +233,7 @@
             }
             //FIT BOUNDS
             map.fitBounds(bounds);
+
             //PLACE MARKER FUNCTION
             function placeMarkerAndPanTo(latLng, map) {
                 var marker = new google.maps.Marker({
@@ -246,8 +246,6 @@
                 });
                 map.panTo(latLng);
             }
-
-
 
             //INFOWINDOW POPULATION
             function populateInfoWindow(marker, infowindow) {
