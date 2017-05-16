@@ -48,54 +48,72 @@
 </table>*@
 
 <div id="map">
+  
 
 </div>
+<div id="coords"></div>
 
 @section scripts{
     <script>
         var map;
-
+  
         var markers = [];
         function initMap() {
             map = new google.maps.Map(document.getElementById('map'), {
                 center: { lat: 32.662658, lng: -97.183712 },
-                zoom: 16
+                zoom: 16,
+                fullscreenControl: true
             });
 
-            var locations = [{ title: '4 stair at Heritage Church', location: { lat: 32.664780, lng: -97.183406 } },
-            { title: 'Corey School 7 stair set', location: { lat: 32.663097, lng: -97.176810 } },
-            { title: 'Mr. Jims Gap', location: { lat: 32.665083, lng: -97.176158 } },
-            { title: 'Lutheran Church Curb Gap', location: { lat: 32.659731, lng: -97.176295 } },
-            { title: 'Rail and 5 stairs', location: { lat: 32.664061, lng: -97.180270 } }];
+            var locations = [{ title: '4 stair at Heritage Church',iwindow: 'In between the two buildings there are two 4 stair sets.', location: { lat: 32.664780, lng: -97.183406 } },
+                { title: 'Corey School 7 stair set', iwindow: 'Eastside of the building in courtyard, very rocky and narrow.', location: { lat: 32.663097, lng: -97.176810 } },
+                { title: 'Mr. Jims Gap', iwindow: '2 or 3 feet gap in sidewalk on the Northside of the building.', location: { lat: 32.665083, lng: -97.176158 } },
+                { title: 'Lutheran Church Curb Gap', iwindow: 'Curb gap to slanted concrete about 3 or 4 feet.', location: { lat: 32.659731, lng: -97.176295 } },
+                { title: 'Rail and 5 stairs', iwindow: 'Around the back of the building, a 5 stair set with a handrail and another rail to the side of that.', location: { lat: 32.664061, lng: -97.180270 } },
+                { title: '3 and 4 stair sets', iwindow: 'These are in front of peoples houses right next to eachother.', location: { lat: 32.661220, lng: -97.185884}},
+                { title: 'Huge hill Bradley Ln', iwindow: 'The top of a big hill, go westbound on Bradley Ln, rocky at the bottom.', location: { lat: 32.654801, lng: -97.183213 } },
+                { title: 'Hill and construction gaps.', iwindow: 'Construction is going on so lots of holes in the road that can be nice gaps.', location: { lat: 32.661597, lng: -97.181217}}];
+
+
+            var coordsDiv = document.getElementById('coords');
+            map.controls[google.maps.ControlPosition.TOP_CENTER].push(coordsDiv);
+            map.addListener('mousemove', function (event) {
+                coordsDiv.textContent =
+                    'lat: ' + (event.latLng.lat()) + ', ' +
+                    'lng: ' + (event.latLng.lng());
+            });
 
             var largeInfowindow = new google.maps.InfoWindow();
-            //var bounds = new google.maps.LatLngBounds();
+            var bounds = new google.maps.LatLngBounds();
 
             for (var i = 0; i < locations.length; i++) {
                 var position = locations[i].location;
                 var title = locations[i].title;
+                var iwindow = locations[i].iwindow;
                 var marker = new google.maps.Marker({
                     map: map,
                     position: position,
                     title: title,
+                    iwindow: iwindow,
                     animation: google.maps.Animation.DROP,
                     id: i
                 });
 
                 markers.push(marker);
 
-
+                bounds.extend(marker.position);
 
                 marker.addListener('click', function () {
                     populateInfoWindow(this, largeInfowindow);
                 });
             }
+            map.fitBounds(bounds);
 
 
             function populateInfoWindow(marker, infowindow) {
                 if (infowindow.marker != marker) {
                     infowindow.marker = marker;
-                    infowindow.setContent('<div>' + marker.title + '</div>');
+                    infowindow.setContent('<div>' + marker.iwindow + '</div>');
                     infowindow.open(map, marker);
 
                     infowindow.addListener('closeclick', function () {
