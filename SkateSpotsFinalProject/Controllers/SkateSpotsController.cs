@@ -17,7 +17,7 @@ namespace SkateSpotsFinalProject.Controllers
         // GET: SkateSpots
         public ActionResult Index()
         {
-            return View(db.SkateSpots.ToList());
+            return View(new SkateSpot());
         }
 
         // GET: SkateSpots/Details/5
@@ -46,7 +46,7 @@ namespace SkateSpotsFinalProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "SkateSpotID,Description,Lat,Long")] SkateSpot skateSpot)
+        public ActionResult Create([Bind(Include = "SkateSpotID,Description,Lat,Long,ShortDescription")] SkateSpot skateSpot)
         {
             if (ModelState.IsValid)
             {
