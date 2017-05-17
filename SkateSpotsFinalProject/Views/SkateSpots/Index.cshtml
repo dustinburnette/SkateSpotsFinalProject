@@ -131,23 +131,23 @@
                 $('#Long').val(e.latLng.lng())
             });
 
-            //$('#Description').val(document.getElementById('Description'));
-            //$('#ShortDescription').val(document.getElementById('ShortDescription'));
+            
             
 
 
 
             //ARRAY OF LOCATIONS/ MY MARKERS
-            var locations = [{ title: '4 stair at Heritage Church', iwindow: 'In between the two buildings there are two 4 stair sets.', location: { lat: 32.664780, lng: -97.183406 } },
-            { title: 'Corey School 7 stair set', iwindow: 'Eastside of the building in courtyard, very rocky and narrow.', location: { lat: 32.663097, lng: -97.176810 } },
-            { title: 'Mr. Jims Gap', iwindow: '2 or 3 feet gap in sidewalk on the Northside of the building.', location: { lat: 32.665083, lng: -97.176158 } },
-            { title: 'Lutheran Church Curb Gap', iwindow: 'Curb gap to slanted concrete about 3 or 4 feet.', location: { lat: 32.659731, lng: -97.176295 } },
-            { title: 'Rail and 5 stairs', iwindow: 'Around the back of the building, a 5 stair set with a handrail and another rail to the side of that.', location: { lat: 32.664061, lng: -97.180270 } },
-            { title: '3 and 4 stair sets', iwindow: 'These are in front of peoples houses right next to eachother.', location: { lat: 32.661220, lng: -97.185884 } },
-            { title: 'Huge hill Bradley Ln', iwindow: 'The top of a big hill, go westbound on Bradley Ln, rocky at the bottom.', location: { lat: 32.654801, lng: -97.183213 } },
-            { title: 'Hill and construction gaps.', iwindow: 'Construction is going on so lots of holes in the road that can be nice gaps.', location: { lat: 32.661597, lng: -97.181217 } },
-            { title: 'Pyramid and 5 stair set', iwindow: 'Pyramid of concrete and 5 stairs on the Northside of the church/building.', location: { lat: 32.654154, lng: -97.176411 } }];
+            //var locations = [{ title: '4 stair at Heritage Church', iwindow: 'In between the two buildings there are two 4 stair sets.', location: { lat: 32.664780, lng: -97.183406 } },
+            //{ title: 'Corey School 7 stair set', iwindow: 'Eastside of the building in courtyard, very rocky and narrow.', location: { lat: 32.663097, lng: -97.176810 } },
+            //{ title: 'Mr. Jims Gap', iwindow: '2 or 3 feet gap in sidewalk on the Northside of the building.', location: { lat: 32.665083, lng: -97.176158 } },
+            //{ title: 'Lutheran Church Curb Gap', iwindow: 'Curb gap to slanted concrete about 3 or 4 feet.', location: { lat: 32.659731, lng: -97.176295 } },
+            //{ title: 'Rail and 5 stairs', iwindow: 'Around the back of the building, a 5 stair set with a handrail and another rail to the side of that.', location: { lat: 32.664061, lng: -97.180270 } },
+            //{ title: '3 and 4 stair sets', iwindow: 'These are in front of peoples houses right next to eachother.', location: { lat: 32.661220, lng: -97.185884 } },
+            //{ title: 'Huge hill Bradley Ln', iwindow: 'The top of a big hill, go westbound on Bradley Ln, rocky at the bottom.', location: { lat: 32.654801, lng: -97.183213 } },
+            //{ title: 'Hill and construction gaps.', iwindow: 'Construction is going on so lots of holes in the road that can be nice gaps.', location: { lat: 32.661597, lng: -97.181217 } },
+            //{ title: 'Pyramid and 5 stair set', iwindow: 'Pyramid of concrete and 5 stairs on the Northside of the church/building.', location: { lat: 32.654154, lng: -97.176411 } }];
 
+            //var locations = [];
 
             var coordsDiv = document.getElementById('coords');
             map.controls[google.maps.ControlPosition.TOP_CENTER].push(coordsDiv);
@@ -163,7 +163,7 @@
 
             //GEOLOCATION STUFF
 
-            //var infoWindow = new google.maps.InfoWindow();
+
             var GeoMarker = new GeolocationMarker(map);
             GeoMarker.setCircleOptions({ fillColor: '#808080' });
             google.maps.event.addListenerOnce(GeoMarker, 'position_changed', function () {
@@ -210,39 +210,46 @@
 
             //LOOP OVER ARRAY OF LOCATIONS TO DROP MARKERS
 
-            for (var i = 0; i < locations.length; i++) {
-                var position = locations[i].location;
-                var title = locations[i].title;
-                var iwindow = locations[i].iwindow;
-                var marker = new google.maps.Marker({
-                    map: map,
-                    position: position,
-                    title: title,
-                    iwindow: iwindow,
-                    animation: google.maps.Animation.DROP,
-                    id: i
-                });
+            
 
-                markers.push(marker);
+            $.get('/api/SkateSpotsApi').done(function (data) {
+                for (var i = 0; i < data.length; i++) {
+                    var position = { lat: data[i].Lat, lng: data[i].Long };
+                    var title = data[i].ShortDescription;
+                    var iwindow = data[i].Description;
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: position,
+                        title: title,
+                        iwindow: iwindow,
+                        animation: google.maps.Animation.DROP,
+                        id: data[i].SkateSpotID
+                    });
 
-                bounds.extend(marker.position);
+                    markers.push(marker);
 
-                marker.addListener('click', function () {
-                    populateInfoWindow(this, largeInfowindow);
-                });
-            }
+                    //bounds.extend(marker.position);
+
+                    marker.addListener('click', function () {
+                        populateInfoWindow(this, largeInfowindow);
+                    });
+                }
+            })
+
+
             //FIT BOUNDS
             map.fitBounds(bounds);
 
             //PLACE MARKER FUNCTION
-            function placeMarkerAndPanTo(latLng, map) {
+            function placeMarkerAndPanTo(latLng, map, data) {
                 var marker = new google.maps.Marker({
                     position: latLng,
                     map: map,
                     title: '',
                     iwindow: '',
                     animation: google.maps.Animation.DROP,
-                    id: i
+                    draggable: true
+                   
                 });
                 map.panTo(latLng);
             }
