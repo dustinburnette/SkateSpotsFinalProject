@@ -231,7 +231,9 @@
                     //bounds.extend(marker.position);
 
                     marker.addListener('click', function () {
+                        console.log(this);
                         populateInfoWindow(this, largeInfowindow);
+
                     });
                 }
             })
@@ -249,6 +251,7 @@
                     iwindow: '',
                     animation: google.maps.Animation.DROP,
                     draggable: true
+                    
                    
                 });
                 map.panTo(latLng);
@@ -258,7 +261,7 @@
             function populateInfoWindow(marker, infowindow) {
                 if (infowindow.marker != marker) {
                     infowindow.marker = marker;
-                    infowindow.setContent('<div>' + marker.iwindow + '</div>');
+                    infowindow.setContent('<div>' + marker.iwindow + '</div>' + '<div class="view-link">' + '<a href="/SkateSpots/Delete/'+ marker.id +'">Delete</a>' + '</div>');
                     infowindow.open(map, marker);
 
                     infowindow.addListener('closeclick', function () {
