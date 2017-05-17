@@ -129,7 +129,11 @@
                 console.log(e.latLng);
                 $('#Lat').val(e.latLng.lat())
                 $('#Long').val(e.latLng.lng())
+
+
             });
+            
+
 
             
             
@@ -179,38 +183,7 @@
 
 
 
-
-
-            //    if (navigator.geolocation) {
-            //        navigator.geolocation.getCurrentPosition(function (position) {
-            //            var pos = { lat: position.coords.latitude, lng: position.coords.longitude };
-
-            //            GeoMarker.setPosition(pos);
-            //            GeoMarker.setContent('Location Found');
-            //            GeoMarker.open(map);
-            //            map.setCenter(pos);
-            //        },
-            //            function () {
-            //                handleLocationError(true, GeoMarker, map.getCenter());
-            //            });
-            //    } else {
-            //        handleLocationError(false, GeoMarker, map.getCenter());
-
-            //    }
-
-            //function handleLocationError(browserHasGeolocation, GeoMarker, pos)
-            //{
-            //    GeoMarker.setPosition(pos);
-            //    GeoMarker.setContent(browserHasGeolocation ?
-            //        'Error: The Geolocation service failed.' :
-            //        'Error: Your browser doesn\'t support geolocation.');
-            //    GeoMarker.open(map);
-            //    }
-
-
             //LOOP OVER ARRAY OF LOCATIONS TO DROP MARKERS
-
-            
 
             $.get('/api/SkateSpotsApi').done(function (data) {
                 for (var i = 0; i < data.length; i++) {
@@ -235,6 +208,12 @@
                         populateInfoWindow(this, largeInfowindow);
 
                     });
+
+                    marker.addListener('dblclick', function () {
+                        marker.setMap(null)
+                        
+
+                    });
                 }
             })
 
@@ -255,6 +234,12 @@
                    
                 });
                 map.panTo(latLng);
+
+                //DOUBLE CLICK NOT SAVED MARKERS TO HIDE THEM
+                marker.addListener('dblclick', function () {
+                    marker.setMap(null)
+
+                });
             }
 
             //INFOWINDOW POPULATION
@@ -265,7 +250,7 @@
                     infowindow.open(map, marker);
 
                     infowindow.addListener('closeclick', function () {
-                        infowindow.setMarker(null);
+                        //infowindow.setMarker(null);
                     });
                 }
             }
