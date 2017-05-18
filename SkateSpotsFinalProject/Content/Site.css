@@ -23,14 +23,18 @@ textarea {
     max-width: 280px;
 }
 #map {
-   height:600px;
-   width:600px;
+   height:580px;
+   width:55%;
    margin: 0 auto;
+   max-height:600px;
 }
 #coords{
     background-color:black;
     color:white;
     padding: 5px;
+}
+#bottom-margin {
+    margin-bottom: -15px;
 }
 
 

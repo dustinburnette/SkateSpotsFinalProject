@@ -10,7 +10,7 @@ namespace SkateSpotsFinalProject.Models
     {
         public int SkateSpotID { get; set; }
         public string Description { get; set; }
-        [Display (Name = "Short Description")]
+        [Display (Name = "Title")]
         public string ShortDescription { get; set; }
         public double Lat { get; set; }
         public double Long { get; set; }
