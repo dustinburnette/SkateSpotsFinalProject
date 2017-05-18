@@ -48,7 +48,7 @@
 
 </table>*@
 <div id="bottom-margin" class="row">
-    <div id="map" class="col-md-8"></div>
+    <div id="map" onclick="play()" class="col-md-8"></div>
     <div id="coords"></div>
 
     <div class="col-md-5">
@@ -97,6 +97,7 @@
             </div>
         }
     </div>
+    @*<audio id="audio" src="~/Content/water_droplet.wav"></audio>*@
 </div>
 @section scripts{
     
@@ -107,10 +108,20 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDONVnN2aLIMB1nIoRFotCNXpeVbTg9rMM&v=3"></script>
     <script type="text/javascript" src="~/Scripts/App/geolocation-marker.js"></script>
 <script>
+
+
         var map;
 
         var markers = [];
         var GeoMarker;
+
+
+
+    //AUDIO FUNCTION
+        function play() {
+            var audio = document.getElementById("audio");
+            audio.play();
+        }
 
         //INITIATE MAP FUNCTION
         function initMap() {
@@ -121,13 +132,13 @@
 
             });
             //USE PLACE MARKER FUNCTION
-            map.addListener('click', function (e) {
+            map.addListener('click', function (e, play) {
                 placeMarkerAndPanTo(e.latLng, map);
                 console.log(e.latLng);
                 $('#Lat').val(e.latLng.lat())
                 $('#Long').val(e.latLng.lng())
 
-
+                play();
             });
             
 
