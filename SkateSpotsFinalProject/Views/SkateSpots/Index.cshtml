@@ -209,11 +209,7 @@
 
                     });
 
-                    marker.addListener('dblclick', function () {
-                        marker.setMap(null)
-                        
-
-                    });
+                    
                 }
             })
 
@@ -235,9 +231,10 @@
                 });
                 map.panTo(latLng);
 
-                //DOUBLE CLICK NOT SAVED MARKERS TO HIDE THEM
+                
                 marker.addListener('dblclick', function () {
                     marker.setMap(null)
+
 
                 });
             }
