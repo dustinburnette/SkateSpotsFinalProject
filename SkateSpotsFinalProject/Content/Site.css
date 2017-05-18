@@ -36,5 +36,13 @@ textarea {
 #bottom-margin {
     margin-bottom: -15px;
 }
+h2 {
+    font-size: 2em;
+    text-align:center;
+    margin-left: -45%;
+}
+.navbar.navbar-inverse.navbar-fixed-top {
+    background-color: #00d4ff;
+}
 
 
