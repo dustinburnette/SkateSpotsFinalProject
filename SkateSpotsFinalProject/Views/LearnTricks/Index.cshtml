@@ -1,10 +1,16 @@
 ﻿@model IEnumerable<SkateSpotsFinalProject.Models.LearnTrick>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Tricks to Learn";
 }
 
 <h2>Tricks to Learn</h2>
+
+<p class="trickLinks">@Html.ActionLink("Pop-Shuvit", "PopShuvit")</p>
+
+<p class="trickLinks">@Html.ActionLink("Kickflip", "Kickflip")</p>
+
+<p class="trickLinks">@Html.ActionLink("Heelflip", "Heelflip")</p>
 
 <p>
     @Html.ActionLink("Create New", "Create")

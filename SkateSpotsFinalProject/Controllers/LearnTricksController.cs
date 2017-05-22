@@ -123,5 +123,22 @@ namespace SkateSpotsFinalProject.Controllers
             }
             base.Dispose(disposing);
         }
+        // GET: LearnTricks/Kickflip
+        public ActionResult Kickflip()
+        {
+            return View();
+        }
+
+        // GET: LearnTricks/Heelflip
+        public ActionResult Heelflip()
+        {
+            return View();
+        }
+
+        // GET: LearnTricks/Pop-Shuvit
+        public ActionResult PopShuvit()
+        {
+            return View();
+        }
     }
 }

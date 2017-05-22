@@ -232,6 +232,10 @@
     <Compile Include="Migrations\201705221535065_Changed List of tricks to string trick name and deleted, re added controller.Designer.cs">
       <DependentUpon>201705221535065_Changed List of tricks to string trick name and deleted, re added controller.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705221606110_Added Kickflip view to LearnTricks Folder.cs" />
+    <Compile Include="Migrations\201705221606110_Added Kickflip view to LearnTricks Folder.Designer.cs">
+      <DependentUpon>201705221606110_Added Kickflip view to LearnTricks Folder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -317,6 +321,9 @@
     <Content Include="Views\LearnTricks\Details.cshtml" />
     <Content Include="Views\LearnTricks\Edit.cshtml" />
     <Content Include="Views\LearnTricks\Index.cshtml" />
+    <Content Include="Views\LearnTricks\Kickflip.cshtml" />
+    <Content Include="Views\LearnTricks\Heelflip.cshtml" />
+    <Content Include="Views\LearnTricks\PopShuvit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -354,6 +361,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705221535065_Changed List of tricks to string trick name and deleted, re added controller.resx">
       <DependentUpon>201705221535065_Changed List of tricks to string trick name and deleted, re added controller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705221606110_Added Kickflip view to LearnTricks Folder.resx">
+      <DependentUpon>201705221606110_Added Kickflip view to LearnTricks Folder.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
