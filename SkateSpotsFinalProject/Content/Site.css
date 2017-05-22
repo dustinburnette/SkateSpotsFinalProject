@@ -36,7 +36,7 @@ textarea {
 #bottom-margin {
     margin-bottom: -15px;
 }
-h2 {
+h2#skateSpotsTitle {
     font-size: 2em;
     text-align:center;
     margin-left: -45%;

@@ -200,6 +200,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LearnTricksController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SkateLoggersController.cs" />
     <Compile Include="Controllers\SkateSpotsApiController.cs" />
@@ -219,9 +220,22 @@
     <Compile Include="Migrations\201705221431035_Added SkateLogger Model and Controller with properties assigned to it..Designer.cs">
       <DependentUpon>201705221431035_Added SkateLogger Model and Controller with properties assigned to it..cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705221513211_Learn Tricks Model and Controller added. .cs" />
+    <Compile Include="Migrations\201705221513211_Learn Tricks Model and Controller added. .Designer.cs">
+      <DependentUpon>201705221513211_Learn Tricks Model and Controller added. .cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705221531194_Turned List of Tricks into string of TrickName in LearnTrick Model.cs" />
+    <Compile Include="Migrations\201705221531194_Turned List of Tricks into string of TrickName in LearnTrick Model.Designer.cs">
+      <DependentUpon>201705221531194_Turned List of Tricks into string of TrickName in LearnTrick Model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705221535065_Changed List of tricks to string trick name and deleted, re added controller.cs" />
+    <Compile Include="Migrations\201705221535065_Changed List of tricks to string trick name and deleted, re added controller.Designer.cs">
+      <DependentUpon>201705221535065_Changed List of tricks to string trick name and deleted, re added controller.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\LearnTrick.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\SkateLogger.cs" />
     <Compile Include="Models\SkateSpot.cs" />
@@ -298,6 +312,11 @@
     <Content Include="Views\SkateLoggers\Details.cshtml" />
     <Content Include="Views\SkateLoggers\Edit.cshtml" />
     <Content Include="Views\SkateLoggers\Index.cshtml" />
+    <Content Include="Views\LearnTricks\Create.cshtml" />
+    <Content Include="Views\LearnTricks\Delete.cshtml" />
+    <Content Include="Views\LearnTricks\Details.cshtml" />
+    <Content Include="Views\LearnTricks\Edit.cshtml" />
+    <Content Include="Views\LearnTricks\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -326,6 +345,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705221431035_Added SkateLogger Model and Controller with properties assigned to it..resx">
       <DependentUpon>201705221431035_Added SkateLogger Model and Controller with properties assigned to it..cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705221513211_Learn Tricks Model and Controller added. .resx">
+      <DependentUpon>201705221513211_Learn Tricks Model and Controller added. .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705221531194_Turned List of Tricks into string of TrickName in LearnTrick Model.resx">
+      <DependentUpon>201705221531194_Turned List of Tricks into string of TrickName in LearnTrick Model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705221535065_Changed List of tricks to string trick name and deleted, re added controller.resx">
+      <DependentUpon>201705221535065_Changed List of tricks to string trick name and deleted, re added controller.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
