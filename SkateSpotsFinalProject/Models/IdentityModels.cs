@@ -31,5 +31,7 @@ namespace SkateSpotsFinalProject.Models
         }
 
         public System.Data.Entity.DbSet<SkateSpotsFinalProject.Models.SkateSpot> SkateSpots { get; set; }
+
+        public System.Data.Entity.DbSet<SkateSpotsFinalProject.Models.SkateLogger> SkateLoggers { get; set; }
     }
 }

@@ -48,7 +48,7 @@
 
 </table>*@
 <div id="bottom-margin" class="row">
-    <div id="map" onclick="play()" class="col-md-8"></div>
+    <div id="map" class="col-md-8"></div>
     <div id="coords"></div>
 
     <div class="col-md-5">
@@ -97,7 +97,7 @@
             </div>
         }
     </div>
-    @*<audio id="audio" src="~/Content/water_droplet.wav"></audio>*@
+    
 </div>
 @section scripts{
     
@@ -111,17 +111,10 @@
 
 
         var map;
-
         var markers = [];
         var GeoMarker;
 
 
-
-    //AUDIO FUNCTION
-        function play() {
-            var audio = document.getElementById("audio");
-            audio.play();
-        }
 
         //INITIATE MAP FUNCTION
         function initMap() {
@@ -138,7 +131,6 @@
                 $('#Lat').val(e.latLng.lat())
                 $('#Long').val(e.latLng.lng())
 
-                play();
             });
             
 

@@ -201,6 +201,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\SkateLoggersController.cs" />
     <Compile Include="Controllers\SkateSpotsApiController.cs" />
     <Compile Include="Controllers\SkateSpotsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -214,10 +215,15 @@
     <Compile Include="Migrations\201705161842491_Added Decimal and short description to model.Designer.cs">
       <DependentUpon>201705161842491_Added Decimal and short description to model.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705221431035_Added SkateLogger Model and Controller with properties assigned to it..cs" />
+    <Compile Include="Migrations\201705221431035_Added SkateLogger Model and Controller with properties assigned to it..Designer.cs">
+      <DependentUpon>201705221431035_Added SkateLogger Model and Controller with properties assigned to it..cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\SkateLogger.cs" />
     <Compile Include="Models\SkateSpot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -226,7 +232,6 @@
     <Content Include="Content\bootstrap-united.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\water_droplet.wav" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -288,6 +293,11 @@
     <Content Include="Views\SkateSpots\Details.cshtml" />
     <Content Include="Views\SkateSpots\Edit.cshtml" />
     <Content Include="Views\SkateSpots\Index.cshtml" />
+    <Content Include="Views\SkateLoggers\Create.cshtml" />
+    <Content Include="Views\SkateLoggers\Delete.cshtml" />
+    <Content Include="Views\SkateLoggers\Details.cshtml" />
+    <Content Include="Views\SkateLoggers\Edit.cshtml" />
+    <Content Include="Views\SkateLoggers\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -313,6 +323,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705161842491_Added Decimal and short description to model.resx">
       <DependentUpon>201705161842491_Added Decimal and short description to model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705221431035_Added SkateLogger Model and Controller with properties assigned to it..resx">
+      <DependentUpon>201705221431035_Added SkateLogger Model and Controller with properties assigned to it..cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
