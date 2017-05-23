@@ -176,5 +176,17 @@ namespace SkateSpotsFinalProject.Controllers
         {
             return View();
         }
+
+        // GET: LearnTricks/Hardflip
+        public ActionResult Hardflip()
+        {
+            return View();
+        }
+
+        // GET: LearnTricks/Inward Heelflip
+        public ActionResult InwardHeelflip()
+        {
+            return View();
+        }
     }
 }
