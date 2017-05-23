@@ -140,5 +140,41 @@ namespace SkateSpotsFinalProject.Controllers
         {
             return View();
         }
+
+        // GET: LearnTricks/Varial Kickflip
+        public ActionResult VarialKickflip()
+        {
+            return View();
+        }
+
+        // GET: LearnTricks/Varial Heelflip
+        public ActionResult VarialHeelflip()
+        {
+            return View();
+        }
+
+        // GET: LearnTricks/360 flip
+        public ActionResult ThreeSixtyFlip()
+        {
+            return View();
+        }
+
+        // GET: LearnTricks/180
+        public ActionResult OneEighty()
+        {
+            return View();
+        }
+
+        // GET: LearnTricks/Ollie
+        public ActionResult Ollie()
+        {
+            return View();
+        }
+
+        // GET: LearnTricks/Lazerflip
+        public ActionResult Lazerflip()
+        {
+            return View();
+        }
     }
 }

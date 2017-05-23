@@ -44,5 +44,23 @@ h2#skateSpotsTitle {
 .navbar.navbar-inverse.navbar-fixed-top {
     background-color: #00d4ff;
 }
-
+.home-list {
+    line-height:2em;
+    font-size: 1.7em;
+}
+#home-lead {
+    font-size:2em;
+}
+.home-h1 {
+    margin-left: 40px;
+    margin-bottom: 30px;
+    margin-top: -20px;
+}
+.jumbotron .home-p {
+    font-size: 2em;
+    padding-bottom: 10px;
+}
+#home-btn {
+    margin-left:30px;
+}
 

@@ -324,9 +324,15 @@
     <Content Include="Views\LearnTricks\Kickflip.cshtml" />
     <Content Include="Views\LearnTricks\Heelflip.cshtml" />
     <Content Include="Views\LearnTricks\PopShuvit.cshtml" />
+    <Content Include="Views\LearnTricks\VarialKickflip.cshtml" />
+    <Content Include="Views\LearnTricks\VarialHeelflip.cshtml" />
+    <Content Include="Views\LearnTricks\ThreeSixtyFlip.cshtml" />
+    <Content Include="Views\LearnTricks\OneEighty.cshtml" />
+    <Content Include="Views\LearnTricks\Ollie.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\LearnTricks\Tricks\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
