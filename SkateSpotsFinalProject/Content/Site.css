@@ -63,4 +63,16 @@ h2#skateSpotsTitle {
 #home-btn {
     margin-left:30px;
 }
+.home-text {
+    font-size: 1.3em;
+}
+div.jumbotron {
+    padding-bottom:30px;
+}
+.trick-title {
+    text-align:center;
+}
+.trick-videos {
+    text-align:center;
+}
 

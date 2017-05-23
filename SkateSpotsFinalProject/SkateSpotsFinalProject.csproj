@@ -329,6 +329,7 @@
     <Content Include="Views\LearnTricks\ThreeSixtyFlip.cshtml" />
     <Content Include="Views\LearnTricks\OneEighty.cshtml" />
     <Content Include="Views\LearnTricks\Ollie.cshtml" />
+    <Content Include="Views\LearnTricks\Lazerflip.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
