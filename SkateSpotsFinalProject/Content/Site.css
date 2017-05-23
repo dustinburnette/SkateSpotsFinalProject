@@ -42,7 +42,7 @@ textarea {
     margin-left: -45%;
 }
 .navbar.navbar-inverse.navbar-fixed-top {
-    background-color: #00d4ff;
+    background-color: darkcyan;
 }
 .home-list {
     line-height:2em;
@@ -75,4 +75,10 @@ div.jumbotron {
 .trick-videos {
     text-align:center;
 }
+.trickLinks {
+    font-size: 1.3em;
+    line-height: 2em;
+    color:darkcyan;
+}
+
 
