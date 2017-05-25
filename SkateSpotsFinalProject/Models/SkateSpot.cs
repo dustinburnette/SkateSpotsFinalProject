@@ -15,5 +15,8 @@ namespace SkateSpotsFinalProject.Models
         public double Lat { get; set; }
         public double Long { get; set; }
 
+        public ApplicationUser User { get; set; }
+        public string UserID { get; set; }
+
     }
 }

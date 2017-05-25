@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using SkateSpotsFinalProject.Models;
+using Microsoft.AspNet.Identity;
 
 namespace SkateSpotsFinalProject.Controllers
 {
@@ -48,6 +49,8 @@ namespace SkateSpotsFinalProject.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "SkateSpotID,Description,Lat,Long,ShortDescription")] SkateSpot skateSpot)
         {
+            skateSpot.UserID = User.Identity.GetUserId();
+
             if (ModelState.IsValid)
             {
                 db.SkateSpots.Add(skateSpot);
@@ -90,17 +93,22 @@ namespace SkateSpotsFinalProject.Controllers
         }
 
         // GET: SkateSpots/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SkateSpot skateSpot = db.SkateSpots.Find(id);
+
+            string userID = User.Identity.GetUserId();
+            SkateSpot skateSpot = db.SkateSpots.Where(p => p.UserID == userID && p.SkateSpotID == id).FirstOrDefault();
+            //SkateSpot skateSpot = db.SkateSpots.Find(id);
             if (skateSpot == null)
             {
                 return HttpNotFound();
             }
+
             return View(skateSpot);
         }
 
@@ -109,7 +117,9 @@ namespace SkateSpotsFinalProject.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            SkateSpot skateSpot = db.SkateSpots.Find(id);
+            string userID = User.Identity.GetUserId();
+            SkateSpot skateSpot = db.SkateSpots.Where(p => p.UserID == userID && p.SkateSpotID == id).FirstOrDefault();
+            //SkateSpot skateSpot = db.SkateSpots.Find(id);
             db.SkateSpots.Remove(skateSpot);
             db.SaveChanges();
             return RedirectToAction("Index");
