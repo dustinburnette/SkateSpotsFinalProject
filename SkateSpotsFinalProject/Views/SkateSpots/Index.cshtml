@@ -51,7 +51,9 @@
     <div id="map" class="col-md-8"></div>
     <div id="coords"></div>
 
-    <div class="col-md-5">
+    <div class="col-md-5">   
+
+
         @using (Html.BeginForm("Create", "SkateSpots"))
         {
             @Html.AntiForgeryToken()
@@ -96,8 +98,17 @@
                 </div>
             </div>
         }
-    </div>
-    
+
+
+        <form id="searchForm">
+            <div class="input-group">
+                <input type="text" id="searchInput" class="form-control" placeholder="Search Keywords..." />
+                <span class="input-group-btn">
+                    <button class="btn btn-info" id="searchButton" type="submit">Search</button>
+                </span>
+            </div>
+        </form>
+    </div>   
 </div>
 @section scripts{
     
@@ -107,6 +118,7 @@
     
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDONVnN2aLIMB1nIoRFotCNXpeVbTg9rMM&v=3"></script>
     <script type="text/javascript" src="~/Scripts/App/geolocation-marker.js"></script>
+    <script type="text/javascript" src="~/Scripts/App/SkateSpotsIndex.js"></script>
 <script>
 
 
@@ -133,12 +145,6 @@
 
             });
             
-
-
-            
-            
-
-
 
             //ARRAY OF LOCATIONS/ MY MARKERS
             //var locations = [{ title: '4 stair at Heritage Church', iwindow: 'In between the two buildings there are two 4 stair sets.', location: { lat: 32.664780, lng: -97.183406 } },
@@ -183,7 +189,6 @@
         
 
 
-
             //LOOP OVER ARRAY OF LOCATIONS TO DROP MARKERS
 
             $.get('/api/SkateSpotsApi').done(function (data) {
@@ -209,7 +214,6 @@
                         populateInfoWindow(this, largeInfowindow);
 
                     });
-
                     
                 }
             })
@@ -240,17 +244,19 @@
                 });
             }
 
-            //INFOWINDOW POPULATION
-            function populateInfoWindow(marker, infowindow) {
-                if (infowindow.marker != marker) {
-                    infowindow.marker = marker;
-                    infowindow.setContent('<div>' + marker.iwindow + '</div>' + '<div class="view-link">' + '<a href="/SkateSpots/Delete/'+ marker.id +'">Delete</a>' + '</div>');
-                    infowindow.open(map, marker);
+            
+        }
 
-                    infowindow.addListener('closeclick', function () {
-                        //infowindow.setMarker(null);
-                    });
-                }
+        //INFOWINDOW POPULATION
+        function populateInfoWindow(marker, infowindow) {
+            if (infowindow.marker != marker) {
+                infowindow.marker = marker;
+                infowindow.setContent('<div>' + marker.iwindow + '</div>' + '<div class="view-link">' + '<a href="/SkateSpots/Delete/' + marker.id + '">Delete</a>' + '</div>');
+                infowindow.open(map, marker);
+
+                infowindow.addListener('closeclick', function () {
+                    //infowindow.setMarker(null);
+                });
             }
         }
 

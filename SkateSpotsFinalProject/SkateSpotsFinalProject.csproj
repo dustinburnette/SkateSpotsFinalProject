@@ -202,6 +202,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LearnTricksController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\SearchApiController.cs" />
     <Compile Include="Controllers\SkateLoggersController.cs" />
     <Compile Include="Controllers\SkateSpotsApiController.cs" />
     <Compile Include="Controllers\SkateSpotsController.cs" />
@@ -245,6 +246,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LearnTrick.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\SearchViewModel.cs" />
     <Compile Include="Models\SkateLogger.cs" />
     <Compile Include="Models\SkateSpot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -260,6 +262,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\App\geolocation-marker.js" />
     <Content Include="Scripts\App\GoogleMapsAPI.js" />
+    <Content Include="Scripts\App\SkateSpotsIndex.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
