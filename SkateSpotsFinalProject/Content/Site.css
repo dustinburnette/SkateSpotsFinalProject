@@ -80,5 +80,13 @@ div.jumbotron {
     line-height: 2em;
     color:darkcyan;
 }
+#searchForm {
+    margin-bottom: 10px;
+    margin-left: -10px;
+}
+#searchButton {
+    margin-left: -66px;
+    z-index:500;
+}
 
 
