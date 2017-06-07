@@ -60,8 +60,8 @@ namespace SkateSpotsFinalProject
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
-            //    ClientId = "",
-            //    ClientSecret = ""
+            //    ClientId = "543683775714-isma8f1kcjm79f0ojekt53fkc2put5ku.apps.googleusercontent.com",
+            //    ClientSecret = "uvttG679YU6h46hp-pNDzLun"
             //});
         }
     }

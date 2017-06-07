@@ -9,44 +9,6 @@
 
 
 
-
-@*<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Lat)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Long)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Lat)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Long)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.SkateSpotID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.SkateSpotID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.SkateSpotID })
-        </td>
-    </tr>
-}
-
-</table>*@
 <div id="bottom-margin" class="row">
     <div id="map" class="col-md-8"></div>
     <div id="coords"></div>
@@ -142,7 +104,7 @@
 
             });
             //USE PLACE MARKER FUNCTION
-            map.addListener('click', function (e, play) {
+            map.addListener('click', function (e) {
                 placeMarkerAndPanTo(e.latLng, map);
                 console.log(e.latLng);
                 $('#Lat').val(e.latLng.lat())
@@ -150,19 +112,6 @@
 
             });
             
-
-            //ARRAY OF LOCATIONS/ MY MARKERS
-            //var locations = [{ title: '4 stair at Heritage Church', iwindow: 'In between the two buildings there are two 4 stair sets.', location: { lat: 32.664780, lng: -97.183406 } },
-            //{ title: 'Corey School 7 stair set', iwindow: 'Eastside of the building in courtyard, very rocky and narrow.', location: { lat: 32.663097, lng: -97.176810 } },
-            //{ title: 'Mr. Jims Gap', iwindow: '2 or 3 feet gap in sidewalk on the Northside of the building.', location: { lat: 32.665083, lng: -97.176158 } },
-            //{ title: 'Lutheran Church Curb Gap', iwindow: 'Curb gap to slanted concrete about 3 or 4 feet.', location: { lat: 32.659731, lng: -97.176295 } },
-            //{ title: 'Rail and 5 stairs', iwindow: 'Around the back of the building, a 5 stair set with a handrail and another rail to the side of that.', location: { lat: 32.664061, lng: -97.180270 } },
-            //{ title: '3 and 4 stair sets', iwindow: 'These are in front of peoples houses right next to eachother.', location: { lat: 32.661220, lng: -97.185884 } },
-            //{ title: 'Huge hill Bradley Ln', iwindow: 'The top of a big hill, go westbound on Bradley Ln, rocky at the bottom.', location: { lat: 32.654801, lng: -97.183213 } },
-            //{ title: 'Hill and construction gaps.', iwindow: 'Construction is going on so lots of holes in the road that can be nice gaps.', location: { lat: 32.661597, lng: -97.181217 } },
-            //{ title: 'Pyramid and 5 stair set', iwindow: 'Pyramid of concrete and 5 stairs on the Northside of the church/building.', location: { lat: 32.654154, lng: -97.176411 } }];
-
-            //var locations = [];
 
             var coordsDiv = document.getElementById('coords');
             map.controls[google.maps.ControlPosition.TOP_CENTER].push(coordsDiv);
@@ -268,7 +217,26 @@
         //INIT FUNCTION LOAD MAP
         google.maps.event.addDomListener(window, 'load', initMap);
 
-        
+
+
+
+
+
+
+
+
+     //ARRAY OF LOCATIONS/ MY MARKERS
+            //var locations = [{ title: '4 stair at Heritage Church', iwindow: 'In between the two buildings there are two 4 stair sets.', location: { lat: 32.664780, lng: -97.183406 } },
+            //{ title: 'Corey School 7 stair set', iwindow: 'Eastside of the building in courtyard, very rocky and narrow.', location: { lat: 32.663097, lng: -97.176810 } },
+            //{ title: 'Mr. Jims Gap', iwindow: '2 or 3 feet gap in sidewalk on the Northside of the building.', location: { lat: 32.665083, lng: -97.176158 } },
+            //{ title: 'Lutheran Church Curb Gap', iwindow: 'Curb gap to slanted concrete about 3 or 4 feet.', location: { lat: 32.659731, lng: -97.176295 } },
+            //{ title: 'Rail and 5 stairs', iwindow: 'Around the back of the building, a 5 stair set with a handrail and another rail to the side of that.', location: { lat: 32.664061, lng: -97.180270 } },
+            //{ title: '3 and 4 stair sets', iwindow: 'These are in front of peoples houses right next to eachother.', location: { lat: 32.661220, lng: -97.185884 } },
+            //{ title: 'Huge hill Bradley Ln', iwindow: 'The top of a big hill, go westbound on Bradley Ln, rocky at the bottom.', location: { lat: 32.654801, lng: -97.183213 } },
+            //{ title: 'Hill and construction gaps.', iwindow: 'Construction is going on so lots of holes in the road that can be nice gaps.', location: { lat: 32.661597, lng: -97.181217 } },
+            //{ title: 'Pyramid and 5 stair set', iwindow: 'Pyramid of concrete and 5 stairs on the Northside of the church/building.', location: { lat: 32.654154, lng: -97.176411 } }];
+
+            //var locations = [];
 
 </script>
 

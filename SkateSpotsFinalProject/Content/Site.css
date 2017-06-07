@@ -88,5 +88,12 @@ div.jumbotron {
     margin-left: -66px;
     z-index:500;
 }
+.skateSpotsText {
+    font-size: 1.3em;
+    border: solid 1px;
+    border-color: #511C39;
+    border-radius:5px;
+    padding: 5px;
+}
 
 
